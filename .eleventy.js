@@ -1,8 +1,10 @@
 const sortByDisplayOrder = require('./src/utils/sort-by-display-order')
 const dateFilter = require('./src/filters/date-filter')
 const w3DateFilter = require('./src/filters/w3-date-filter')
+const rssPlugin = require('@11ty/eleventy-plugin-rss');
 
 module.exports = config => {
+    config.addPlugin(rssPlugin);
     config.addPassthroughCopy('./src/images/');
 
     // Filters
