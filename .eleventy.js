@@ -4,6 +4,7 @@ const w3DateFilter = require('./src/filters/w3-date-filter')
 const rssPlugin = require('@11ty/eleventy-plugin-rss');
 
 module.exports = config => {
+    config.setUseGitIgnore(false);
     config.addPlugin(rssPlugin);
     config.addPassthroughCopy('./src/images/');
 
