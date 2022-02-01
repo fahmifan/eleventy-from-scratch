@@ -28,6 +28,12 @@ module.exports = config => {
         return [...collection.getFilteredByGlob('./src/posts/*.md')].reverse()
     })
 
+    config.addCollection('people', collection => {
+        return collection.getFilteredByGlob('./src/people/*.md').sort((a, b) => {
+            return Number(a.fileSlug) > Number(b.fileSlug) ? 1 : -1
+        })
+    })
+
     return {
         dir: {
             input: 'src',
