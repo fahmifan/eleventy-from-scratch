@@ -1,7 +1,13 @@
 const sortByDisplayOrder = require('./src/utils/sort-by-display-order')
+const dateFilter = require('./src/filters/date-filter')
+const w3DateFilter = require('./src/filters/w3-date-filter')
 
 module.exports = config => {
     config.addPassthroughCopy('./src/images/');
+
+    // Filters
+    config.addFilter('dateFilter', dateFilter)
+    config.addFilter('w3DateFilter', w3DateFilter)
 
     // Returns work items, sorted by display order
     config.addCollection('work', collection => {
