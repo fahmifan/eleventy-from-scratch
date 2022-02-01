@@ -19,4 +19,32 @@ module.exports = {
 
         return response
     },
+    getSiblingContent(collection = [], item = {}, limit = 3, random = true) {
+        let filteredItems = collection.filter(x => x.url !== item.url)
+
+        const filterSize = filteredItems.length;
+        if (random) {
+            let counter = filterSize
+
+            while (counter > 0) {
+                // Pick random index
+                let index = Math.floor(Math.random() * counter)
+
+                counter--
+
+                let temp = filteredItems[counter]
+
+                // Swap the last element with the random one
+                filteredItems[counter] = filteredItems[index]
+                filteredItems[index] = temp;
+            }
+        }
+
+        // lastly, trim to length
+        if (limit > 0 && filterSize > 0) {
+            filteredItems = filteredItems.slice(0, limit)
+        }
+
+        return filteredItems;
+    }
 }
