@@ -1,7 +1,8 @@
 {% extends "layouts/base.html" %}
 
+{% set pageCriticalStyles = ['css/page.css'] %}
 {% set pageHeaderTitle = title %}
-{% set pageHeaderSummary = summary %}
+{% set pageHeaderSummary = content %}
 {% set postListItems = pagination.items %}
 
 {# If this is a tag, grab those items instead as one large collection #}
