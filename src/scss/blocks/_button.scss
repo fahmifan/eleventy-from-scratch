@@ -22,6 +22,6 @@
     // Add a ghost modifier
     &[data-variant='ghost'] {
         background: transparent;
-        columns: get-color('quaternary-glare');
+        color: get-color('quaternary-glare');
     }
 }
