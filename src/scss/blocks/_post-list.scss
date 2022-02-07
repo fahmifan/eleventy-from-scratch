@@ -1,7 +1,7 @@
 .post-list {
     &__link {
         font-size: get-size('700');
-        color: get-color('dark-sahed');
+        color: get-color('dark-shade');
         text-decoration-color: get-color('primary-shade');
 
         @include apply-utility('font', 'sans');
