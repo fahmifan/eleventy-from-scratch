@@ -1,12 +1,17 @@
 const sortByDisplayOrder = require('./src/utils/sort-by-display-order')
 const dateFilter = require('./src/filters/date-filter')
 const w3DateFilter = require('./src/filters/w3-date-filter')
-const rssPlugin = require('@11ty/eleventy-plugin-rss');
+const rssPlugin = require('@11ty/eleventy-plugin-rss')
+const htmlMinTransformer = require('./src/transforms/html-min-transform')
+
+const isPrd = process.env.NODE_ENV === 'production';
 
 module.exports = config => {
     config.setUseGitIgnore(false);
     config.addPlugin(rssPlugin);
-    config.addPassthroughCopy('./src/images/');
+    if (isPrd) {
+        config.addTransform('htmlmin', htmlMinTransformer)
+    }
 
     // Filters
     config.addFilter('dateFilter', dateFilter)
